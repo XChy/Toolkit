@@ -2,7 +2,7 @@
 To remember my own toolkit for improving productivity
 
 ## IDE or Editor
-[**Vim for everything**]()
+[**Vim for Everything**]()
 
 [**VSCode for C/C++**]()
 
@@ -11,6 +11,15 @@ To remember my own toolkit for improving productivity
 [**IntelliJ for Java**]()
 
 [**Pycharm for Python**]()
+
+## CLI
+[**zsh**]()
+
+[**git for version control**]()
+
+[**perf for performance analysis**]()
+## Test 
+[**GTest for unit test**]()
 
 ## Message
 [**ThunderBird for mails**]()
