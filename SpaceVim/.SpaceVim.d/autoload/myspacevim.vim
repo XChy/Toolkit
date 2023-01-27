@@ -12,4 +12,11 @@ function! myspacevim#after() abort
   imap df <Esc>
   " map gi to ctrl+]
   nmap gi <C-]>
+
+  inoremap <silent><expr> <C-j>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \  "\<C-j>"
+  inoremap <silent><expr> <C-k>
+      \ coc#pum#visible() ? coc#pum#prev(1) :
+      \  "\<C-k>"
 endfunction

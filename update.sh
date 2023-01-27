@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 for dir in ./*
 do
     if [ -d "$dir" ]

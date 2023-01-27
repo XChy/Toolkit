@@ -43,6 +43,8 @@ name = 'colorscheme'
 
 [[layers]]
     name = 'ui'
+    enable_indentline = true
+    indentline_char = '|'
 
 [[layers]]
 name = "format"
@@ -76,8 +78,10 @@ name = "lsp"
 filetypes = [
   "c",
   "cpp"
+  "python"
+  "sh"
 ]
-enabled_clients = ['pylsp','clangd']
+# enabled_clients = ['pylsp','clangd']
 [layers.override_cmd]
 c = ["clangd"]
 cpp = ["clangd"]
@@ -118,10 +122,6 @@ name = "VersionControl"
 # markdown support
 [[layers]]
   name = "lang#markdown"
-   
-[[custom_plugins]]
-   repo = 'iamcco/markdown-preview.nvim'
-   merged = false
 
 # cmake support
 [[layers]]
@@ -131,7 +131,7 @@ name = "VersionControl"
 [[layers]]
   name = "lang#python"
   python_file_head = [
-      '#!/usr/bin/env python',
+      '#!/usr/bin/env python3',
       '# -*- coding: utf-8 -*-',
       '',
       ''
