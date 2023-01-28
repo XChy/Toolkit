@@ -11,12 +11,12 @@
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
-    colorscheme = "onedark"
+    colorscheme = "hybrid"
     colorscheme_bg = "dark"
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
     enable_guicolors = true
-    guifont = " Yahei_Consolas_Hybrid:h11"
+    guifont = "Consolas-with-Yahei:h16"
     # Disable statusline separator, if you want to use other value, please
     # install nerd fonts
     statusline_separator = "arrow"
@@ -25,6 +25,7 @@
     enable_tabline_filetype_icon = true
     enable_statusline_mode = true
     #language
+    snippet_engine = ""
     # options for layers checkers
     enable_neomake =  true
     enable_ale =  false
@@ -46,14 +47,20 @@ name = 'colorscheme'
     enable_indentline = true
     indentline_char = '|'
 
+# format-related
 [[layers]]
 name = "format"
 format_on_save = true
 
+#shell support
 [[layers]]
 name = 'shell'
 default_position = 'bottom'
 default_height = 30
+
+#fuzzy finder support
+[[layers]]
+name = "fzf"
 
 # c/c++
 # Enable autocomplete layer
@@ -66,29 +73,7 @@ auto-completion-tab-key-behavior = "complete"
 name = 'checkers'
 show_cursor_error = true
 
-[[layers]]
-name = "lang#c"
-clang_executable = "clang"
-[layer.clang_std]
-c = "c11"
-cpp = "c++1z"
 
-[[layers]]
-name = "lsp"
-filetypes = [
-  "c",
-  "cpp"
-  "python"
-  "sh"
-]
-# enabled_clients = ['pylsp','clangd']
-[layers.override_cmd]
-c = ["clangd"]
-cpp = ["clangd"]
-
-# java support
-[[layers]]
-name = "lang#java"
 
 # git support
 [[layers]]
@@ -104,29 +89,62 @@ name = "VersionControl"
   default_position = 'left'
   default_width = 30
 
+# rainbow parenthesis
 [[custom_plugins]]
-   repo = 'altercation/vim-colors-solarized'
-   # note: you need to disable merged feature
+   repo = 'luochen1990/rainbow'
    merged = false
 
+#hexmode of vim
 [[custom_plugins]]
-   repo = 'rootkiter/vim-hexedit'
-   # note: you need to disable merged feature
+   repo = 'fidian/hexmode'
    merged = false
 
 # change cursor
+# [[custom_plugins]]
+   # repo = 'wincent/terminus'
+   # merged = false
+
+# Highlight the symbol and its references when holding the cursor.
 [[custom_plugins]]
-   repo = 'wincent/terminus'
+   repo = 'RRethy/vim-illuminate'
    merged = false
 
+[[layers]]
+name = "lsp"
+filetypes = [
+  "c",
+  "cpp"
+  "python"
+  "sh"
+  "vim"
+  "lua"
+]
+enabled_clients = ['pylsp','clangd','vimls','bashls','luau_lsp']
+
+# c/cpp support
+[[layers]]
+name = "lang#c"
+clang_executable = "clang"
+enable_clang_syntax_highlight = false 
+
+[layer.clang_std]
+c = "c11"
+cpp = "c++1z"
+# java support
+[[layers]]
+name = "lang#java"
+# shell-language support
+[[layers]]
+  name = "lang#sh"
+# vimscript support
+[[layers]]
+  name = "lang#vim"
 # markdown support
 [[layers]]
   name = "lang#markdown"
-
 # cmake support
 [[layers]]
   name = "lang#cmake"
-
 # python support
 [[layers]]
   name = "lang#python"
@@ -136,11 +154,10 @@ name = "VersionControl"
       '',
       ''
   ]
-
-# shell-language support
 [[layers]]
-  name = "lang#sh"
+  name = "lang#lua"
+
 # debug support
 [[layers]]
   name = "debug"
-	debugger_plugin = "vimspector"
+  debugger_plugin = "vimspector"

@@ -1,0 +1,13 @@
+{
+    // priority of coc-snippets source
+    "snippets.priority": 100,
+    "snippets.ultisnips.directories": ["~/.SpaceVim.d/UltiSnips"],
+
+
+    "sumneko-lua.enableNvimLuaDev": true,
+
+    "semanticTokens.filetypes": ["*"],
+
+    "clangd.semanticHighlighting": true,
+    "coc.preferences.semanticTokensHighlights": false,
+}
