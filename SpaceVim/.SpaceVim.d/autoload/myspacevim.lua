@@ -22,14 +22,16 @@ vim.call('SpaceVim#custom#SPC','nnoremap', {'y'}, [[:<C-u>CocList -A --normal ya
 --easy to be normal
 keyset("i","jk",'<Esc>',{})
 --easy to jump into implementation
-keyset("n","gi",'<C+]>',{})
+keyset("n","gi",'<C+]>',opts_key)
 -- ctrl+a tp select all
 keyset("","<C-a>",'ggvG$',{})
 
---COC AutoComplete
+--COC's autocomplete and coc-ultisnips
 -- shortcut to switch the item to complete
 keyset("i","<C-j>",'coc#pum#visible() ? coc#pum#next(1) : "<C-j>"',opts_expr)
 keyset("i","<C-k>",'coc#pum#visible() ? coc#pum#prev(1) : "<C-k>"',opts_expr)
-keyset("i","<TAB>",[[coc#pum#visible() ? coc#pum#confirm() :coc#expandableOrJumpable() ? "<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" : "<TAB>"]],opts_expr)
+keyset("i","<TAB>",[[coc#pum#visible() ? coc#pum#confirm() : UltiSnips#CanJumpForwards() ? "<C-r>=UltiSnips#JumpForwards()<CR>" : "\<TAB>"]],opts_expr)
 
-vim.g.coc_snippet_next='<TAB>'
+-- Nerdtree setting
+vim.g.NERDTreeDirArrowExpandable = '+'
+vim.g.NERDTreeDirArrowCollapsible = '-'

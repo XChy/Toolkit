@@ -6,17 +6,17 @@ function! myspacevim#before() abort
     " copy to systematic clipboard
     " set clipboard=unnamedplus
     " activate rainbow parenthesis
-    " let g:rainbow_active = 1
+    let g:rainbow_active = 1
     " space + y to open yanklist
     " call SpaceVim#custom#SPC('nnoremap', ['y'], ':<C-u>CocList -A --normal yank<cr>', 'open yanklist', 0)
 
-    :luafile ~/.SpaceVim.d/autoload/myspacevim.lua
 endfunction
 
 
 
 
 function! myspacevim#after() abort
+    :luafile ~/.SpaceVim.d/autoload/myspacevim.lua
     " map jk tp Esc
     " easy to be normal
     " imap jk <Esc>

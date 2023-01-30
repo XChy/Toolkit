@@ -76,7 +76,7 @@ for (${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
 endsnippet
 
 snippet fori "for int loop (fori)"
-for (${4:int} ${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
+for (${4:int} ${1:i} = 0; $1 < ${2:count}; ${3:++$1}) {
 	${VISUAL}$0
 }
 endsnippet
@@ -118,7 +118,7 @@ else if (${1:/* condition */}) {
 endsnippet
 
 post_jump "printf_expand_args(snip)"
-snippet "printf" "printf with auto-expand args" wr
+snippet "print" "printf with auto-expand args" wr
 printf("$1\n"$2);
 endsnippet
 
