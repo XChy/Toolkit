@@ -32,10 +32,15 @@
     lint_on_save = false
     lint_on_the_fly = false
 
+    #use lua to configure
+    use_lua = 1
+
     default_indent = 4
     #custom setting
     bootstrap_before = "myspacevim#before"
     bootstrap_after  = "myspacevim#after"
+
+    enable_terminal_runner = true
 
     autocomplete_method = "coc"
     autocomplete_parens = false
@@ -120,7 +125,7 @@ filetypes = [
   "vim",
   "lua"
 ]
-enabled_clients = ['pylsp','clangd','vimls','bashls','luau_lsp']
+enabled_clients = ['pyright','clangd','vimls','bashls','luau_lsp']
 
 # c/cpp support
 [[layers]]
@@ -129,7 +134,7 @@ clang_executable = "clang"
 enable_clang_syntax_highlight = false 
 [layer.clang_std]
 c = "c11"
-cpp = "c++1z"
+cpp = "c++20"
 
 # java support
 [[layers]]

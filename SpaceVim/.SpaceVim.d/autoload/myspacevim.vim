@@ -7,8 +7,10 @@ function! myspacevim#before() abort
     " set clipboard=unnamedplus
     " activate rainbow parenthesis
     let g:rainbow_active = 1
+    :lua require('myspacevim')
+    nmap <leader>rf <Plug>(coc-refactor)
     " space + y to open yanklist
-    call SpaceVim#custom#SPC('nnoremap', ['y'], ':<C-u>CocList -A --normal yank<cr>', 'open yanklist', 0)
+    " call SpaceVim#custom#SPC('nnoremap', ['y'], '<cmd>CocList -A --normal yank<cr>', 'open yanklist', 0)
 
 endfunction
 
@@ -16,8 +18,8 @@ endfunction
 
 
 function! myspacevim#after() abort
-    :luafile ~/.SpaceVim.d/autoload/myspacevim.lua
-    :luafile ~/.SpaceVim.d/autoload/mydebug.lua
+    :lua require('mydebug')
+    " :luafile ~/.SpaceVim.d/autoload/mydebug.lua
     " map jk tp Esc
     " easy to be normal
     " imap jk <Esc>
