@@ -1,9 +1,0 @@
-{
-    // priority of coc-snippets source
-    "snippets.priority": 100,
-    "suggest.preferCompleteThanJumpPlaceholder": true,
-
-    "sumneko-lua.enableNvimLuaDev": true,
-
-    "semanticTokens.enable": true,
-}
