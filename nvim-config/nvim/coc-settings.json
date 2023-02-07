@@ -1,0 +1,18 @@
+{
+  // priority of coc-snippets source
+  "snippets.priority": 100,
+  "suggest.preferCompleteThanJumpPlaceholder": true,
+  "sumneko-lua.enableNvimLuaDev": true,
+  "semanticTokens.enable": true,
+  "workspace.workspaceFolderCheckCwd": true,
+  "outline.sortBy": "position",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "cpp",
+    "c",
+    "lua",
+    "json",
+    "python",
+    "java",
+    "md"
+  ]
+}
