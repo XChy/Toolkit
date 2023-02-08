@@ -10,7 +10,7 @@ local function blogNew(input)
         local path = string.sub(output, string.find(output, '~', 1, true), -1)
         vim.cmd(":e " .. path)
     else
-        my.notify("Failed creating new blog post", "error")
+        my.notify("Failed creating new blog post" .. input.args, "error")
     end
 end
 
@@ -23,7 +23,7 @@ local function blogNewDraft(input)
         local path = string.sub(output, string.find(output, '~', 1, true), -1)
         vim.cmd(":e " .. path)
     else
-        my.notify("Failed creating new blog draft", "error")
+        my.notify("Failed creating new blog post" .. input.args, "error")
     end
 end
 
@@ -45,5 +45,5 @@ end
 vim.api.nvim_create_user_command("HexoNew", blogNew, { nargs = 1 })
 vim.api.nvim_create_user_command("HexoNewDraft", blogNewDraft, { nargs = 1 })
 vim.api.nvim_create_user_command("HexoPush", blogGenerateAndDeploy, { nargs = 0 })
-vim.api.nvim_create_user_command("EditMyBlog", blogEdit, { nargs = 0 }
+vim.api.nvim_create_user_command("HexoOpen", blogEdit, { nargs = 0 }
 )

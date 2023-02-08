@@ -20,7 +20,7 @@ vim.api.nvim_create_user_command(
     end,
     { desc = "Delete the current Buffer while maintaining the window layout" })
 
-local tool_pattern = { 'NvimTree_', 'CocTree' }
+local tool_pattern = { 'NvimTree_', 'CocTree', '#toggleterm#' }
 
 local function match_tool(str)
         for _, pattern in pairs(tool_pattern) do

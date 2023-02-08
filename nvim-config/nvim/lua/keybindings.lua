@@ -12,7 +12,7 @@ keyset({ "i", "n", "v" }, "<C-a>", '<Esc>gg^vG$', {})
 
 
 --NvimTree's
-keyset("n", "<F3>", [[<cmd>NvimTreeFocus<CR>]], opts_key)
+keyset("n", "<F3>", [[<cmd>NvimTreeToggle<CR>]], opts_key)
 
 -- c/c++ switch between header and source
 keyset("n", "gc", [[<cmd>CocCommand clangd.switchSourceHeader<CR>]], opts_key)
