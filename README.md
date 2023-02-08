@@ -2,9 +2,7 @@
 To remember my own toolkit for improving productivity
 
 ## IDE or Editor
-[**Vim for Everything**]()
-
-[**SpaceVim for enhanced Vim**]()
+[**(Neo)Vim for Editing Everything**](https://neovim.io/)
 
 [**VSCode for C/C++**]()
 
@@ -15,13 +13,16 @@ To remember my own toolkit for improving productivity
 [**Pycharm for Python**]()
 
 ## CLI
-[**zsh**]()
+[**zsh**](https://ohmyz.sh/)
 
-[**git for version control**]()
+[**git for version control**](https://git-scm.com/)
 
 [**perf for performance analysis**]()
+
+[**Translate shell for translation**](https://github.com/soimort/translate-shell)
+
 ## Test 
-[**GTest for unit test**]()
+[**GTest for unit test**](https://github.com/google/googletest)
 
 ## Message
 [**ThunderBird for mails**]()
