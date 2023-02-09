@@ -2,9 +2,11 @@ local lib = require("nvim-tree.lib")
 local view = require("nvim-tree.view")
 local api = require("nvim-tree.api")
 local core = require("nvim-tree.core")
+local my = require('basic')
 
 local function update_cwd()
-    vim.cmd('cd ' .. core.get_cwd())
+    vim.api.nvim_set_current_dir(core.get_cwd())
+    my.notify('Current working directory switched to ' .. core.get_cwd(), 'info')
 end
 
 require('nvim-tree').setup({
@@ -16,6 +18,9 @@ require('nvim-tree').setup({
                 { key = "<C-x>", action = "cwd", action_cb = update_cwd },
             }
         },
+    },
+    git = {
+        ignore = false
     },
     -- hide .git directory
     filters = { custom = { "^.git$" } }

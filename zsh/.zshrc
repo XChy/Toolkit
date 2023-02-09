@@ -18,7 +18,8 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
  eval "$(lua ~/z.lua/z.lua --init zsh)"
 
  #aliases
- alias e='nvim-qt'
+ alias e='nvim'
+alias eu='goneovim'
 
 #add my customed services
 export PATH=/home/xchy/CustomedService:$PATH

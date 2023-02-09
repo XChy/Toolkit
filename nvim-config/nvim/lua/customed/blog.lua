@@ -1,5 +1,5 @@
 local blog_path = "~/Documents/Hexo-Blog"
-local my        = require('basic')
+local notify    = require('basic').notify
 
 local function blogNew(input)
     vim.api.nvim_set_current_dir(blog_path)
@@ -10,7 +10,7 @@ local function blogNew(input)
         local path = string.sub(output, string.find(output, '~', 1, true), -1)
         vim.cmd(":e " .. path)
     else
-        my.notify("Failed creating new blog post" .. input.args, "error")
+        notify("Failed creating new blog post" .. input.args, "error")
     end
 end
 
@@ -23,16 +23,16 @@ local function blogNewDraft(input)
         local path = string.sub(output, string.find(output, '~', 1, true), -1)
         vim.cmd(":e " .. path)
     else
-        my.notify("Failed creating new blog post" .. input.args, "error")
+        notify("Failed creating new blog post" .. input.args, "error")
     end
 end
 
 local function blogGenerateAndDeploy()
     vim.api.nvim_set_current_dir(blog_path)
     if (os.execute("hexo g && hexo s")) then
-        my.notify("Deploy the blog successfully", "info")
+        notify("Deploy the blog successfully", "info")
     else
-        my.notify("Deployment of blog failed", "error")
+        notify("Deployment of blog failed", "error")
     end
 end
 

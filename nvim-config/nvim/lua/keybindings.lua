@@ -51,6 +51,16 @@ keyset("n", "<leader>to", "<cmd>TodoLocList<cr>", { desc = 'Open todolist' })
 keyset({ "n" }, "<leader>gc", "<cmd>VGit project_commit_preview<CR>", opts_key)
 keyset({ "n" }, "<leader>gd", "<cmd>VGit project_diff_preview<CR>", opts_key)
 keyset({ "n" }, "<leader>gs", "<cmd>VGit project_stage_all<CR>", opts_key)
+-- LazyGit
+keyset({ "n" }, "<leader>gl", "<cmd>LazyGit<CR>", opts_key)
 
--- Customed
+--ToggleTerminal
+keyset({ "n" }, "<leader>'", "<cmd>ToggleTerm<CR>", opts_key)
+
+---- Customed
+-- Switch to customed config
 vim.keymap.set("n", "<leader>con", "<cmd>EditMyConfig<cr>", opts_key)
+
+-- Translate
+vim.keymap.set({ "n", "v" }, "gw", "<cmd>Wd<cr>", opts_key)
+vim.keymap.set({ "n", "v" }, "gt", "<cmd>Trans<cr>", opts_key)

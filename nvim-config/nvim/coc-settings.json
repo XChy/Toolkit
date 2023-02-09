@@ -6,6 +6,7 @@
   "semanticTokens.enable": true,
   "workspace.workspaceFolderCheckCwd": true,
   "outline.sortBy": "position",
+  "inlayHint.enable": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "cpp",
     "c",
@@ -14,5 +15,9 @@
     "python",
     "java",
     "md"
+  ],
+  "Lua.workspace.library": [
+    "/usr/share/nvim/runtime/lua",
+    "/home/xchy/.local/share/nvim/lazy/toggleterm.nvim/lua"
   ]
 }

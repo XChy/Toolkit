@@ -36,6 +36,7 @@ function _G.show_docs()
     end
 end
 
+keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', { silent = true })
 ----
 
 
@@ -51,7 +52,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
 })
 ---
 
--- Use Tab for trigger completion with characters ahead and navigate
+--- Use Tab for trigger completion with characters ahead and navigate
 keyset("i", "<C-j>", [[coc#pum#visible() ? coc#pum#next(1) : "<C-j>"]], opts_expr)
 keyset("i", "<C-k>", [[coc#pum#visible() ? coc#pum#prev(1) : "<C-k>"]], opts_expr)
 keyset("i", "<TAB>",
@@ -59,18 +60,18 @@ keyset("i", "<TAB>",
     , opts_expr)
 ------
 
--- Add `:Format` command to format current buffer
+--- Add `:Format` command to format current buffer
 vim.api.nvim_create_user_command("Format", "call CocAction('format')", {})
 
--- " Add `:Fold` command to fold current buffer
+--- " Add `:Fold` command to fold current buffer
 vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", { nargs = '?' })
 keyset("n", "<leader>lf", "<cmd>call CocAction('fold')<cr>", opts_key)
 
--- Add `:OR` command for organize imports of the current buffer
+--- Add `:OR` command for organize imports of the current buffer
 vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'editor.action.organizeImport')", {})
 
--- Outline support
--- see keymappings with :h coc-tree-mappings and coc-outline
+--- Outline support
+--- see keymappings with :h coc-tree-mappings and coc-outline
 local function toggleOutline()
     local winid = vim.call('coc#window#find', 'cocViewId', 'OUTLINE')
     if winid == -1 then

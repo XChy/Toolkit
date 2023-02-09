@@ -3,8 +3,8 @@ vim.g.encoding = "UTF-8"
 vim.o.fileencoding = 'utf-8'
 
 -- nobackup
-vim.opt.backup = false
-vim.opt.writebackup = false
+vim.g.backup = false
+vim.g.writebackup = false
 
 -- apply number of columns
 vim.wo.number = true
@@ -29,6 +29,12 @@ vim.bo.expandtab = true
 vim.o.autoindent = true
 vim.bo.autoindent = true
 vim.o.smartindent = true
+
+-- ui font
+vim.api.nvim_set_option("guifont", 'Droid Sans Mono Nerd Font:h16')
+vim.opt.termguicolors = true
+
+
 
 -- reduce update time
 vim.opt.updatetime = 300
