@@ -33,6 +33,7 @@ vim.api.nvim_create_user_command("Wd",
                 direction = 'float',
                 hidden = true,
                 close_on_exit = false,
+                auto_scroll = false,
                 float_opts = {
                     relative = 'cursor'
                 }

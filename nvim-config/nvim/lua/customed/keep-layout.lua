@@ -32,26 +32,50 @@ local function match_tool(str)
 end
 
 local function autoclose()
+    print(string.format('enter %s', vim.api.nvim_buf_get_name(0)))
     local wins = vim.api.nvim_list_wins()
     local canQuit = true
     for _, win_id in pairs(wins) do
         local buf = vim.api.nvim_win_get_buf(win_id)
-        if vim.api.nvim_buf_get_option(buf, 'buflisted') then
-            return
-        end
-        --local win_name = vim.api.nvim_buf_get_name(buf)
-        --if not match_tool(win_name) then
-        --canQuit = false
-        --break
+        --if vim.api.nvim_buf_get_option(buf, 'buflisted') and vim.api.nvim_buf_get_option(buf, 'buftype') ~= 'nofile' then
+        --print(vim.api.nvim_buf_get_name(buf))
+        --return
         --end
+        --vim.cmd 'qa'
+        local win_name = vim.api.nvim_buf_get_name(buf)
+        if not match_tool(win_name) then
+            print('remaining')
+            print(win_name)
+            canQuit = false
+            break
+        end
     end
 
     if canQuit then
-        vim.cmd "quit"
+        print('quit')
+        vim.cmd "qa"
     end
 end
 
-vim.api.nvim_create_autocmd("BufEnter", {
-    callback = autoclose,
-    nested = true
-})
+local function autoclose_()
+    if vim.api.nvim_buf_get_option(0, 'buflisted') then
+        --vim.cmd 'qa'
+    end
+end
+
+local function autoclose__()
+    local win = vim.fn.expand('<afile>')
+    local buf = vim.api.nvim_win_get_buf(win)
+    if nvim_buf_get_option(buf, 'buflisted') then
+        print('qa')
+    end
+end
+
+--vim.api.nvim_create_autocmd("WinClosed", {
+--callback = autoclose__, nested = true
+--})
+
+--vim.api.nvim_create_autocmd("QuitPre", {
+--callback = autoclose_,
+--nested = true
+--})

@@ -3,6 +3,8 @@
   "snippets.priority": 100,
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "sumneko-lua.enableNvimLuaDev": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
   "semanticTokens.enable": true,
   "workspace.workspaceFolderCheckCwd": true,
   "outline.sortBy": "position",
@@ -18,6 +20,7 @@
   ],
   "Lua.workspace.library": [
     "/usr/share/nvim/runtime/lua",
-    "/home/xchy/.local/share/nvim/lazy/toggleterm.nvim/lua"
+    "/home/xchy/.local/share/nvim/lazy/toggleterm.nvim/lua",
+    "/home/xchy/.local/share/nvim/lazy/nvim-tree.lua/lua"
   ]
 }

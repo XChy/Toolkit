@@ -16,9 +16,9 @@ keyset("n", "gR", "<Plug>(coc-references)", { silent = true })
 
 ------- Code action
 -- Remap keys for apply code actions at the cursor position.
-keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts)
+keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", {})
 -- Remap keys for apply code actions affect whole buffer.
-keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", opts)
+keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", {})
 keyset("n", "gr", "<Plug>(coc-rename)", { silent = true })
 keyset("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
 keyset({ "x", "n" }, "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })

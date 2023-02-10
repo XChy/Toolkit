@@ -1,8 +1,10 @@
 # Toolkit
-To remember my own toolkit for improving productivity
+To remember my own toolkit for productivity
 
 ## IDE or Editor
 [**(Neo)Vim for Editing Everything**](https://neovim.io/)
+
+[**Neovide -- UI for Neovim**](https://github.com/neovide/neovide)
 
 [**VSCode for C/C++**]()
 
@@ -19,7 +21,7 @@ To remember my own toolkit for improving productivity
 
 [**perf for performance analysis**]()
 
-[**Translate shell for translation**](https://github.com/soimort/translate-shell)
+[**translate-shell for translation**](https://github.com/soimort/translate-shell)
 
 ## Test 
 [**GTest for unit test**](https://github.com/google/googletest)

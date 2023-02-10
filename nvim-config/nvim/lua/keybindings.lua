@@ -43,10 +43,6 @@ keyset("n", "<C-l>", ":BufferLineCycleNext<CR>", opts_key)
 -- TodoComment
 keyset("n", "<leader>to", "<cmd>TodoLocList<cr>", { desc = 'Open todolist' })
 
--- Tagbar
---keyset({ "n", "i" }, "<F2>", "<cmd>TagbarToggle<CR>", opts_key)
---keyset({ "n", "i" }, "<F2>", "<cmd>CocOutline<CR>", opts_key)
-
 -- VGit
 keyset({ "n" }, "<leader>gc", "<cmd>VGit project_commit_preview<CR>", opts_key)
 keyset({ "n" }, "<leader>gd", "<cmd>VGit project_diff_preview<CR>", opts_key)
@@ -56,6 +52,9 @@ keyset({ "n" }, "<leader>gl", "<cmd>LazyGit<CR>", opts_key)
 
 --ToggleTerminal
 keyset({ "n" }, "<leader>'", "<cmd>ToggleTerm<CR>", opts_key)
+
+--Noice
+keyset({ "n" }, "<leader>m", "<cmd><CR>", opts_key)
 
 ---- Customed
 -- Switch to customed config

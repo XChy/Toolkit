@@ -14,15 +14,15 @@ dapui.setup()
 initArgs = {}
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
+    dapui.open()
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-        initArgs = {}
-        dapui.close()
+    initArgs = {}
+    dapui.close()
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-        initArgs = {}
-        dapui.close()
+    initArgs = {}
+    dapui.close()
 end
 
 dap.adapters.cppdbg = {
@@ -32,18 +32,18 @@ dap.adapters.cppdbg = {
 }
 
 function split(str, reps)
-        local resultStrList = {}
-        string.gsub(str, '[^' .. reps .. ']+', function(w)
-                table.insert(resultStrList, w)
-        end)
-        return resultStrList
+    local resultStrList = {}
+    string.gsub(str, '[^' .. reps .. ']+', function(w)
+        table.insert(resultStrList, w)
+    end)
+    return resultStrList
 end
 
 function getInitArgs()
-        if #initArgs == 0 then
-                initArgs = split(vim.fn.input('Path to executable and args:', vim.fn.getcwd() .. '/'), ' ')
-        end
-        return initArgs
+    if #initArgs == 0 then
+        initArgs = split(vim.fn.input('Path to executable and args:', vim.fn.getcwd() .. '/'), ' ')
+    end
+    return initArgs
 end
 
 -- c/c++ configurations
@@ -53,12 +53,12 @@ dap.configurations.cpp = {
         type = "cppdbg",
         request = "launch",
         program = function()
-                return getInitArgs()[1]
+            return getInitArgs()[1]
         end,
         cwd = '${workspaceFolder}',
         console = 'externalTerminal',
         args = function()
-                return { unpack(getInitArgs(), 2) }
+            return { unpack(getInitArgs(), 2) }
         end,
         stopAtEntry = true,
     }
@@ -70,12 +70,12 @@ dap.configurations.python = {
         type = "python",
         request = "launch",
         program = function()
-                return getInitArgs()[1]
+            return getInitArgs()[1]
         end,
         cwd = '${workspaceFolder}',
         console = 'externalTerminal',
         args = function()
-                return { unpack(getInitArgs(), 2) }
+            return { unpack(getInitArgs(), 2) }
         end,
         stopAtEntry = true,
     }
@@ -143,4 +143,4 @@ vim.fn.sign_define('DapBreakpoint', dap_breakpoint.error)
 vim.fn.sign_define('DapBreakpointCondition', dap_breakpoint.condition)
 vim.fn.sign_define('DapBreakpointRejected', dap_breakpoint.rejected)
 vim.fn.sign_define('DapLogPoint', dap_breakpoint.logpoint)
-vim.fn.sign_define('DapStopped', dap_breakpoint.stopped)
+vim.fn.sign_define('DapStopped', dap_breakpoint.stoped)

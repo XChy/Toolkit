@@ -62,6 +62,16 @@ require("lazy").setup({
         end
     },
     {
+        "powerman/vim-plugin-AnsiEsc",
+        lazy = false
+    },
+    --{
+    --'goolord/alpha-nvim',
+    --config = function()
+    --require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+    --end
+    --},
+    {
         "Shatur/neovim-session-manager",
         cmd = 'SessionManager',
         dependencies = { { 'nvim-lua/plenary.nvim' } },
@@ -150,11 +160,7 @@ require("lazy").setup({
             })
         end,
         dependencies = {
-            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
             "MunifTanjim/nui.nvim",
-            -- OPTIONAL:
-            --   `nvim-notify` is only needed, if you want to use the notification view.
-            --   If not available, we use `mini` as the fallback
             "rcarriga/nvim-notify",
         }
     },
@@ -168,6 +174,7 @@ require("lazy").setup({
     },
     {
         "neoclide/coc.nvim",
+        dependencies = { "SirVer/ultisnips" },
         lazy = false,
         config = function()
         end,
