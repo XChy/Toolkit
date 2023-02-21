@@ -6,13 +6,13 @@ To remember my own toolkit for productivity
 
 [**Neovide -- UI for Neovim**](https://github.com/neovide/neovide)
 
-[**VSCode for C/C++**]()
+[**VSCode for C/C++**](https://code.visualstudio.com/)
 
-[**CLion for C**]()
+[**CLion for C**](https://www.jetbrains.com/clion/)
 
-[**IntelliJ for Java**]()
+[**IntelliJ for Java**](https://www.jetbrains.com/idea/)
 
-[**Pycharm for Python**]()
+[**Pycharm for Python**](https://www.jetbrains.com/pycharm/)
 
 ## CLI
 [**zsh**](https://ohmyz.sh/)
@@ -30,4 +30,4 @@ To remember my own toolkit for productivity
 [**GTest for unit test**](https://github.com/google/googletest)
 
 ## Message
-[**ThunderBird for mails**]()
+[**ThunderBird for mails**](https://www.thunderbird.net/)
