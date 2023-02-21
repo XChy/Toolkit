@@ -23,6 +23,9 @@ To remember my own toolkit for productivity
 
 [**translate-shell for translation**](https://github.com/soimort/translate-shell)
 
+## English
+[**Daily English Listening**](https://dict.eudic.net/ting)
+
 ## Test 
 [**GTest for unit test**](https://github.com/google/googletest)
 

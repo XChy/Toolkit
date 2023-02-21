@@ -1,7 +1,0 @@
-{
-  "Lua.workspace.library": [
-    "/usr/share/nvim/runtime/lua",
-    "/home/xchy/.local/share/nvim/lazy/toggleterm.nvim/lua",
-    "/home/xchy/.local/share/nvim/lazy/nvim-tree.lua/lua"
-  ]
-}

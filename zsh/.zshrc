@@ -19,7 +19,12 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
  #aliases
  alias e='nvim'
-alias eu='goneovim'
+alias eu='neovide'
 
 #add my customed services
 export PATH=/home/xchy/CustomedService:$PATH
+
+#input
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx

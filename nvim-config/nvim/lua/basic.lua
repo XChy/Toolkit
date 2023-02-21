@@ -29,7 +29,12 @@ end
 -- show the string of content in form of console font
 -- support colored font in terminal
 --- @param content:string[]
-function M.show_term_content(content)
+--- @param name:string
+function M.show_term_content(content, name)
+    if name == nil then
+        name = 'MyWindow'
+    end
+
     local buf = vim.api.nvim_create_buf(false, false)
     vim.api.nvim_buf_set_text(buf, 0, 0, 0, 0, content)
     local win = vim.api.nvim_open_win(buf, true, {
@@ -47,6 +52,15 @@ function M.show_term_content(content)
     vim.api.nvim_buf_set_option(buf, 'bufhidden', 'wipe')
     vim.api.nvim_buf_set_option(buf, 'modified', false)
     vim.api.nvim_buf_set_option(buf, 'buflisted', false)
+
+    vim.api.nvim_buf_set_name(buf, name)
+    -- quit the float window when leaving
+    vim.api.nvim_create_autocmd('BufLeave', {
+        pattern = name,
+        callback = function()
+            vim.cmd [[bd!]]
+        end
+    })
 end
 
 return M
