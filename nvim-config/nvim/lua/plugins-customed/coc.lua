@@ -53,11 +53,20 @@ vim.api.nvim_create_autocmd("CursorHold", {
 ---
 
 --- Use Tab for trigger completion with characters ahead and navigate
-keyset("i", "<C-j>", [[coc#pum#visible() ? coc#pum#next(1) : "<C-j>"]], opts_expr)
+function _G.check_back_space()
+    local col = vim.fn.col('.') - 1
+    return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+end
+
+keyset("i", "<C-j>", [[coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<C-j>" : coc#refresh()]],
+    opts_expr)
 keyset("i", "<C-k>", [[coc#pum#visible() ? coc#pum#prev(1) : "<C-k>"]], opts_expr)
 keyset("i", "<TAB>",
     [[coc#pum#visible() ? coc#pum#confirm() : UltiSnips#CanJumpForwards() ? "<C-r>=UltiSnips#JumpForwards()<CR>" : "\<TAB>"]]
     , opts_expr)
+
+-- Use <c-space> to trigger completion
+keyset("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
 ------
 
 --- Add `:Format` command to format current buffer

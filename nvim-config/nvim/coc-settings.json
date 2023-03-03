@@ -9,18 +9,25 @@
   "workspace.workspaceFolderCheckCwd": true,
   "outline.sortBy": "position",
   "inlayHint.enable": false,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "cpp",
-    "c",
-    "lua",
-    "json",
-    "python",
-    "java",
-    "md"
-  ],
+  "coc.preferences.formatOnSave": true,
+
   "Lua.workspace.library": [
     "/usr/share/nvim/runtime/lua",
     "/home/xchy/.local/share/nvim/lazy/toggleterm.nvim/lua",
     "/home/xchy/.local/share/nvim/lazy/nvim-tree.lua/lua"
-  ]
+  ],
+
+  "diagnostic-languageserver.formatFiletypes": {
+    "python": ["black"]
+  },
+  "diagnostic-languageserver.formatters": {
+    "black": {
+      "command": "black",
+      "args": ["-q", "-"]
+    },
+    "isort": {
+      "command": "isort",
+      "args": ["-q", "-"]
+    }
+  }
 }

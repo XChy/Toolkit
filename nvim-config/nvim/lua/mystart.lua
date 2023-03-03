@@ -20,7 +20,8 @@ require("lazy").setup({
         config = function()
             require('which-key').setup({
                 hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ ", "a" } })
-        end },
+        end
+    },
     { "nvim-tree/nvim-web-devicons" },
     {
         "rcarriga/nvim-notify",
@@ -34,14 +35,18 @@ require("lazy").setup({
         lazy = false
     },
     {
-        'akinsho/bufferline.nvim', dependencies = { { 'nvim-tree/nvim-web-devicons' } }, lazy = false,
+        'akinsho/bufferline.nvim',
+        dependencies = { { 'nvim-tree/nvim-web-devicons' } },
+        lazy = false,
         -- 左侧让出 nvim-tree 的位置
-        options = { offsets = { {
-            filetype = "NvimTree",
-            text = "File Explorer",
-            highlight = "Directory",
-            text_align = "left"
-        } } },
+        options = {
+            offsets = { {
+                filetype = "NvimTree",
+                text = "File Explorer",
+                highlight = "Directory",
+                text_align = "left"
+            } }
+        },
         config = function()
             vim.opt.termguicolors = true
             require("bufferline").setup {}
@@ -71,14 +76,14 @@ require("lazy").setup({
     --require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
     --end
     --},
-    {
-        "Shatur/neovim-session-manager",
-        cmd = 'SessionManager',
-        dependencies = { { 'nvim-lua/plenary.nvim' } },
-        config = function()
-            require('session_manager').setup({})
-        end
-    },
+    --{
+    --"Shatur/neovim-session-manager",
+    --lazy = false,
+    --dependencies = { { 'nvim-lua/plenary.nvim' } },
+    --config = function()
+    --require('session_manager').setup({})
+    --end
+    --},
     {
         'nvim-lualine/lualine.nvim',
         event = 'BufEnter',
@@ -141,7 +146,8 @@ require("lazy").setup({
     },
     { 'lukas-reineke/indent-blankline.nvim',  event = 'VeryLazy' },
     {
-        "akinsho/toggleterm.nvim", version = '*',
+        "akinsho/toggleterm.nvim",
+        version = '*',
         cmd = { [[ToggleTerm]], [[LazyGit]], [[Top]] },
         config = function()
             require("toggleterm").setup({
@@ -172,6 +178,9 @@ require("lazy").setup({
             require('plugins-customed.dap')
         end
     },
+
+    { 'pechorin/any-jump.vim', lazy = true, cmd = { 'AnyJump', 'AnyJumpVisual', 'AnyJumpBack' } },
+
     {
         "neoclide/coc.nvim",
         dependencies = { "SirVer/ultisnips" },
@@ -179,7 +188,14 @@ require("lazy").setup({
         config = function()
         end,
         branch = 'release'
-    }
+    },
+    {
+        'weilbith/nvim-code-action-menu',
+        dependencies = 'xiyaowong/coc-code-action-menu.nvim',
+        config = function()
+            require 'coc-code-action-menu'
+        end,
+    },
 })
 
 
