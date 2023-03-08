@@ -1,13 +1,26 @@
 local Terminal = require('toggleterm.terminal').Terminal
 
-local lazygit = Terminal:new({ cmd = "lazygit", direction = 'float', hidden = true })
-local top = Terminal:new({ cmd = "top", direction = 'float', hidden = true })
+local top = Terminal:new({
+    cmd = "top",
+    direction = 'float',
+    hidden = true,
+})
 
 
 -- lazygit
 vim.api.nvim_create_user_command("LazyGit",
     function()
-        lazygit:toggle()
+        local lazygit = Terminal:new({
+            cmd = 'lazygit',
+            dir = vim.fn.getcwd(),
+            direction = 'float',
+            hidden = true,
+            on_open = function(term)
+                vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+            end,
+        })
+
+        lazygit:open()
     end,
     { nargs = 0 })
 

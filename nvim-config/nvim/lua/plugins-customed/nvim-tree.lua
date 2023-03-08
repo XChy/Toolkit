@@ -22,5 +22,6 @@ require('nvim-tree').setup({
         ignore = false
     },
     -- hide .git directory
-    filters = { custom = { "^.git$" } }
+    filters = {
+        custom = { "^.git$", "CMakeCache.txt", "cmake_install.cmake", "CMakeFiles", ".vscode", "CTestTestfile.cmake" } }
 })

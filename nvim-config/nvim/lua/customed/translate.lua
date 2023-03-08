@@ -1,22 +1,27 @@
 local api = vim.api
 local utils = require('basic')
-local notify = utils.notify
-local async = require('plenary.async')
+local Job = require('plenary.job')
 
 -- the console colored font is relied on https://github.com/powerman/vim-plugin-AnsiEsc
 local function translate_word()
     local mode = vim.api.nvim_get_mode()['mode']
-    local word
+    local word = ""
     if mode == 'n' then
         word = vim.fn.expand('<cword>')
     else
         word = utils.get_visual_selection()
     end
 
-    async.run(function()
-        local translated_content = vim.fn.systemlist('wd ' .. word)
-        utils.show_term_content(translated_content)
-    end)
+    Job:new({
+        command = 'wd',
+        args = { word },
+        on_exit = function(job, return_val)
+            local translated_content = job:result()
+            vim.schedule(function()
+                utils.show_term_content(translated_content, "FindWord")
+            end)
+        end
+    }):start()
 end
 
 local function translate_terminal()
@@ -27,12 +32,17 @@ local function translate_terminal()
     elseif mode == 'v' then
         to_translate = require('basic').get_visual_selection()
     end
-    local command = string.format('trans "%s"', to_translate)
 
-    async.run(function()
-        local translated_content = vim.fn.systemlist(command)
-        utils.show_term_content(translated_content)
-    end)
+    Job:new({
+        command = 'trans',
+        args = { to_translate },
+        on_exit = function(job, return_val)
+            local translated_content = job:result()
+            vim.schedule(function()
+                utils.show_term_content(translated_content, "Translator")
+            end)
+        end
+    }):start()
 end
 
 api.nvim_create_user_command("Wd", translate_word, { nargs = 0, range = true })

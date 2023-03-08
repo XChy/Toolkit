@@ -14,8 +14,8 @@ function M.get_visual_selection_lines()
     end
 
     local lines = vim.api.nvim_buf_get_text(0,
-            _start[2] - 1, _start[3] - 1,
-            _end[2] - 1, _end[3], {})
+        _start[2] - 1, _start[3] - 1,
+        _end[2] - 1, _end[3], {})
 
     return lines
 end
@@ -38,14 +38,14 @@ function M.show_term_content(content, name)
     local buf = vim.api.nvim_create_buf(false, false)
     vim.api.nvim_buf_set_text(buf, 0, 0, 0, 0, content)
     local win = vim.api.nvim_open_win(buf, true, {
-            relative = 'cursor',
-            style = 'minimal',
-            row = 0,
-            col = 0,
-            width = 60,
-            height = #content,
-            border = 'single'
-        })
+        relative = 'cursor',
+        style = 'minimal',
+        row = 0,
+        col = 0,
+        width = 60,
+        height = #content,
+        border = 'single'
+    })
     -- TODO make float window close when not focused
     vim.cmd [[AnsiEsc]]
     vim.api.nvim_buf_set_option(buf, 'buftype', 'nofile')
@@ -54,6 +54,8 @@ function M.show_term_content(content, name)
     vim.api.nvim_buf_set_option(buf, 'buflisted', false)
 
     vim.api.nvim_buf_set_name(buf, name)
+    vim.api.nvim_buf_set_keymap(buf, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+
     -- quit the float window when leaving
     vim.api.nvim_create_autocmd('BufLeave', {
         pattern = name,

@@ -175,11 +175,10 @@ require("lazy").setup({
         dependencies = { "mfussenegger/nvim-dap" },
         keys = { '<F5>', '<F9>' },
         config = function()
-            require('plugins-customed.dap')
+            dapui.setup()
         end
     },
-
-    { 'pechorin/any-jump.vim', lazy = true, cmd = { 'AnyJump', 'AnyJumpVisual', 'AnyJumpBack' } },
+    { 'pechorin/any-jump.vim', lazy = false, cmd = { 'AnyJump', 'AnyJumpVisual', 'AnyJumpBack' }, key = '<space><j>' },
 
     {
         "neoclide/coc.nvim",

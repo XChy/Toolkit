@@ -10,7 +10,6 @@ keyset({ "i", "n", "v" }, "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>
 
 
 -- auto open dapui
-dapui.setup()
 initArgs = {}
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -28,7 +27,7 @@ end
 dap.adapters.cppdbg = {
     id = 'cppdbg',
     type = 'executable',
-    command = '/home/xchy/cpptools/extension/debugAdapters/bin/OpenDebugAD7'
+    command = '/home/xchy/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
 }
 
 function split(str, reps)
@@ -61,6 +60,13 @@ dap.configurations.cpp = {
             return { unpack(getInitArgs(), 2) }
         end,
         stopAtEntry = true,
+        setupCommands = {
+            {
+                text = '-enable-pretty-printing',
+                description = 'enable pretty printing',
+                ignoreFailures = false
+            },
+        },
     }
 }
 dap.configurations.c = dap.configurations.cpp
