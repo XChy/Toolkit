@@ -19,7 +19,6 @@ vim.api.nvim_create_user_command("LazyGit",
                 vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
             end,
         })
-
         lazygit:open()
     end,
     { nargs = 0 })

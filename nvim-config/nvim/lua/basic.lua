@@ -60,7 +60,7 @@ function M.show_term_content(content, name)
     vim.api.nvim_create_autocmd('BufLeave', {
         pattern = name,
         callback = function()
-            vim.cmd [[bd!]]
+            vim.cmd [[close]]
         end
     })
 end

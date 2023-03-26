@@ -20,6 +20,7 @@
   "diagnostic-languageserver.formatFiletypes": {
     "python": ["black"]
   },
+
   "diagnostic-languageserver.formatters": {
     "black": {
       "command": "black",

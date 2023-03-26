@@ -71,12 +71,6 @@ require("lazy").setup({
         lazy = false
     },
     --{
-    --'goolord/alpha-nvim',
-    --config = function()
-    --require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
-    --end
-    --},
-    --{
     --"Shatur/neovim-session-manager",
     --lazy = false,
     --dependencies = { { 'nvim-lua/plenary.nvim' } },
@@ -107,8 +101,8 @@ require("lazy").setup({
     },
     {
         "folke/todo-comments.nvim",
+        lazy = false,
         requires = "nvim-lua/plenary.nvim",
-        cmd = { 'TodoLocList', 'TodoQuickFix', 'TodoTelescope', 'TodoTrouble' },
         config = function()
             require("todo-comments").setup {}
         end
@@ -175,7 +169,7 @@ require("lazy").setup({
         dependencies = { "mfussenegger/nvim-dap" },
         keys = { '<F5>', '<F9>' },
         config = function()
-            dapui.setup()
+            require("plugins-customed.dap")
         end
     },
     { 'pechorin/any-jump.vim', lazy = false, cmd = { 'AnyJump', 'AnyJumpVisual', 'AnyJumpBack' }, key = '<space><j>' },
