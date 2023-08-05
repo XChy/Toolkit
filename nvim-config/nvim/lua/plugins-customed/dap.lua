@@ -30,11 +30,9 @@ dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-    initArgs = {}
     dapui.close()
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-    initArgs = {}
     dapui.close()
 end
 
@@ -52,10 +50,11 @@ function split(str, reps)
     return resultStrList
 end
 
-function getInitArgs()
-    if #initArgs == 0 then
-        initArgs = split(vim.fn.input('Path to executable and args:', vim.fn.getcwd() .. '/'), ' ')
-    end
+function getArgs()
+    initArgs = split(vim.fn.input({
+        prompt = 'Args:',
+        completion = 'file',
+    }), ' ')
     return initArgs
 end
 
@@ -66,12 +65,16 @@ dap.configurations.cpp = {
         type = "cppdbg",
         request = "launch",
         program = function()
-            return getInitArgs()[1]
+            return vim.fn.input({
+                prompt = 'Path to executable:',
+                default = vim.fn.getcwd() .. '/',
+                completion = 'file',
+            })
         end,
         cwd = '${workspaceFolder}',
         console = 'externalTerminal',
         args = function()
-            return { unpack(getInitArgs(), 2) }
+            return getArgs()
         end,
         stopAtEntry = true,
         setupCommands = {
@@ -91,12 +94,12 @@ dap.configurations.python = {
         type = "python",
         request = "launch",
         program = function()
-            return getInitArgs()[1]
+            return getArgs()[1]
         end,
         cwd = '${workspaceFolder}',
         console = 'externalTerminal',
         args = function()
-            return { unpack(getInitArgs(), 2) }
+            return { unpack(getArgs(), 2) }
         end,
         stopAtEntry = true,
     }

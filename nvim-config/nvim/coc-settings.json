@@ -9,7 +9,7 @@
   "workspace.workspaceFolderCheckCwd": true,
   "outline.sortBy": "position",
   "inlayHint.enable": false,
-  "coc.preferences.formatOnSave": true,
+  "coc.preferences.formatOnSave": false,
 
   "Lua.workspace.library": [
     "/usr/share/nvim/runtime/lua",

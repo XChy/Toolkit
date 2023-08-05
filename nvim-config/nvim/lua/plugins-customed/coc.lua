@@ -22,6 +22,9 @@ keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", {})
 keyset("n", "gr", "<Plug>(coc-rename)", { silent = true })
 keyset("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
 keyset({ "x", "n" }, "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+-- Format Code
+keyset({ "x", "n" }, "gf", "<CMD>Format<CR>", { silent = true })
+keyset("x", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
 -------
 
 -- Code's Documentation

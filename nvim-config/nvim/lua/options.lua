@@ -34,7 +34,14 @@ vim.o.smartindent = true
 vim.api.nvim_set_option("guifont", 'Droid Sans Mono Nerd Font:h16')
 vim.opt.termguicolors = true
 
+-- auto load
+vim.o.autoread = true
+vim.bo.autoread = true
 
+-- noswap
+vim.o.backup = false
+vim.o.writebackup = false
+vim.o.swapfile = false
 
 -- reduce update time
 vim.opt.updatetime = 300

@@ -22,6 +22,10 @@ require("lazy").setup({
                 hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ ", "a" } })
         end
     },
+    {
+        'UltiRequiem/coc-cl',
+        run = 'yarn install --frozen-lockfile && yarn build'
+    },
     { "nvim-tree/nvim-web-devicons" },
     {
         "rcarriga/nvim-notify",
@@ -32,6 +36,10 @@ require("lazy").setup({
     },
     {
         "MunifTanjim/nui.nvim",
+        lazy = false
+    },
+    {
+        'intuited/vim-shell_complete',
         lazy = false
     },
     {
@@ -52,12 +60,6 @@ require("lazy").setup({
             require("bufferline").setup {}
         end
     },
-    --{
-    --'karb94/neoscroll.nvim', lazy = false,
-    --config = function()
-    --require('neoscroll').setup()
-    --end
-    --},
     {
         'glepnir/dashboard-nvim',
         event = 'VimEnter',
@@ -70,14 +72,21 @@ require("lazy").setup({
         "powerman/vim-plugin-AnsiEsc",
         lazy = false
     },
-    --{
-    --"Shatur/neovim-session-manager",
-    --lazy = false,
-    --dependencies = { { 'nvim-lua/plenary.nvim' } },
-    --config = function()
-    --require('session_manager').setup({})
-    --end
-    --},
+    {
+        "Shatur/neovim-session-manager",
+        lazy = false,
+        dependencies = { { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-tree.lua' } },
+        config = function()
+            require('session_manager').setup({
+                autosave_ignore_buftypes = { "terminal" },
+                autosave_ignore_filetypes = {
+                    'gitcommit',
+                    'gitrebase',
+                    'nofile'
+                },
+            })
+        end
+    },
     {
         'nvim-lualine/lualine.nvim',
         event = 'BufEnter',
@@ -93,6 +102,9 @@ require("lazy").setup({
         config = function()
             vim.cmd([[colorscheme nightfly]])
         end
+    },
+    {
+        "rhysd/vim-llvm"
     },
     {
         'luochen1990/rainbow',

@@ -44,5 +44,4 @@ end
 vim.api.nvim_create_user_command("HexoNew", blogNew, { nargs = 1 })
 vim.api.nvim_create_user_command("HexoNewDraft", blogNewDraft, { nargs = 1 })
 vim.api.nvim_create_user_command("HexoPush", blogGenerateAndDeploy, { nargs = 0 })
-vim.api.nvim_create_user_command("HexoOpen", blogEdit, { nargs = 0 }
-)
+vim.api.nvim_create_user_command("HexoOpen", blogEdit, { nargs = 0 })
